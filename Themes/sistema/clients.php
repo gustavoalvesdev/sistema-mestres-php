@@ -231,38 +231,79 @@
 						<div class="clear"></div>
 						<div class="espaco-min"></div>
 					</form>
-					
 					<table>
+					<?php 
+
+						if (isset($_POST['btn_search'])) {
+							$search = strip_tags(filter_input(INPUT_POST, 'searching', FILTER_SANITIZE_STRIPPED));
+
+							if (empty($search)) {
+								echo "<div class='result btn_new'>
+									<p class='color-white font-text-min'>Favor, preencha o campo de busca</p>
+								
+								</div>";
+							} else {
+								$read = $pdo->prepare("SELECT cliente_id, cliente_nome, cliente_email, cliente_status, cliente_cadastro FROM " . DB_CLIENTS . " WHERE cliente_nome = :cliente_nome AND cliente_status = :cliente_status");
+								$read->bindValue(':cliente_nome', $search);
+								$read->bindValue(':cliente_status', 1);
+								$read->execute();
+
+								$lines = $read->rowCount();
+
+								if ($lines == 0) {
+									echo "<div class='result btn_new'>
+										<p class='color-white font-text-min'>Esse cliente não foi encontrado!</p>
+									
+									</div>";
+								} else {
+									foreach($read as $show) {
+
+									
+
+					?>
+					
 						<tr>
 							<td>
 								<p class="font-text-sub"><b>Cliente:</b></p>
-								<p>José da Silva</p>
+								<p><?= strip_tags($show['cliente_nome']) ?></p>
 							</td>
 							
 							<td>
 								<p class="font-text-sub"><b>Cadastrado:</b></p>
-								<p>11/02/2022</p>
+								<p class="text-center"><?= ($show['cliente_cadastro'] == '' || $show['cliente_cadastro'] == '0000-00-00 00:00:00' ? '-'  : date('d/m/Y', strtotime($show['cliente_cadastro']))) ?></p>
 							</td>
 							
 							<td>
 								<p class="font-text-sub"><b>E-mail:</b></p>
-								<p>jose@gmail.com</p>
+								<p><?= strip_tags($show['cliente_email']) ?></p>
 							</td>
 							
 							<td>
 								<p class="font-text-sub"><b>Status:</b></p>
 								<p class="font-text-sub">
-									<span class="active radius"> ATIVO </span>
+									<?php if ($show['cliente_status'] == 0) {
+										echo '<span class="inactive radius"> INATIVO </span>';
+									} else {
+										echo '<span class="active radius"> ATIVO </span>';
+									}
+									?>
 								</p>
 							</td>
 							
 							<td>
 								<p class="text-center">
-									<a href="#" title="Visualizar e editar informações" class="radius btn_edit editClient"><i class="fa fa-pen"></i></a>
-									<a href="#" title="Remover este registro" class="radius btn_delete deleteClient"><i class="fa fa-trash-alt"></i></a>
+									<a href="#" title="Visualizar e editar informações" class="radius btn_edit editClient" data-id="<?= strip_tags($show['cliente_id']) ?>"><i class="fa fa-pen"></i></a>
+									<a href="#" title="Remover este registro" class="radius btn_delete deleteClient" data-id="<?= strip_tags($show['cliente_id']) ?>"><i class="fa fa-trash-alt"></i></a>
 								</p>
 							</td>
 						</tr>
+						<?php 
+										}
+									}
+
+								}
+							}
+						?>
 					</table>
 					
 				</div>
