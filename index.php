@@ -37,7 +37,7 @@
     <script src="<?= $configBase; ?>js/jquery-money.js"></script>
     <script src="<?= $configBase; ?>js/jquery-form.js"></script>
     <script src="<?= $configBase; ?>js/views.js"></script>
-    <script src="<?= $configBase; ?>js/ajax.js"></script>
+    <script src="<?= $configBase; ?>Ajax/ajax.js"></script>
 
 </body>
 </html>

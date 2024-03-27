@@ -27,7 +27,7 @@ $statusSite = 1; //0=>offline, 1=>online, 2=>maintenance  [Status da aplicação
 $helloBar = 1;  //0=>offline, 1=>online [Status do HelloBar]
 
 /* Configurações do Autor */
-$nameAuthorSite = "Mestres do PHP Treinamentos"; //Nome do Autor
+$nameAuthorSite = "GMBTech Sistemas"; //Nome do Autor
 $mainAuthorSite = "contato@interligsolucoes.com.br"; //E-mail do Autor
 $phoneAuthorSite = "(XX) xxxxx-xxxx"; //Telefone do Autor
 
@@ -55,9 +55,9 @@ define("LEVEL_SUPER", 10); //Nível de Acesso Para Profissional Web [Você]
 /* Configurações de Tabelas do Database */
 define("DB_USERS", "si_usuarios"); //Definição da Constante Para Tabela SI_USUARIOS
 define("DB_CLIENTS", "si_clientes"); //Definição da Constante Para Tabela SI_CLIENTES
+define("DB_ORDERS", "si_pedidos"); //Definição da Constante Para Tabela SI_CLIENTES
 define("DB_PRODUCTS", "si_produtos"); //Definição da Constante Para Tabela SI_PRODUTOS
 define("DB_PROVIDERS", "si_fornecedores"); //Definição da Constante Para Tabela SI_FORNECEDORES
-define("DB_ORDERS", "si_pedidos"); //Definição da Constante Para Tabela SI_PEDIDO_MATERIAL
 
 define('BLOCKED', 1); //Bloqueio o Usuário Após 6 Tentativas de Senha Errado
 define('TIMESBLOCKED', 6); //Quantas Tentativas Usuário Pode Fazer Antes de Bloquear

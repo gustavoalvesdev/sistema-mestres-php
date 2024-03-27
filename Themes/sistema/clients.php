@@ -232,35 +232,6 @@
 						<div class="espaco-min"></div>
 					</form>
 					<table>
-					<?php 
-
-						if (isset($_POST['btn_search'])) {
-							$search = strip_tags(filter_input(INPUT_POST, 'searching', FILTER_SANITIZE_STRIPPED));
-
-							if (empty($search)) {
-								echo "<div class='result btn_new'>
-									<p class='color-white font-text-min'>Favor, preencha o campo de busca</p>
-								
-								</div>";
-							} else {
-								$read = $pdo->prepare("SELECT cliente_id, cliente_nome, cliente_email, cliente_status, cliente_cadastro FROM " . DB_CLIENTS . " WHERE cliente_nome = :cliente_nome AND cliente_status = :cliente_status");
-								$read->bindValue(':cliente_nome', $search);
-								$read->bindValue(':cliente_status', 1);
-								$read->execute();
-
-								$lines = $read->rowCount();
-
-								if ($lines == 0) {
-									echo "<div class='result btn_new'>
-										<p class='color-white font-text-min'>Esse cliente não foi encontrado!</p>
-									
-									</div>";
-								} else {
-									foreach($read as $show) {
-
-									
-
-					?>
 					
 						<tr>
 							<td>
@@ -297,13 +268,6 @@
 								</p>
 							</td>
 						</tr>
-						<?php 
-										}
-									}
-
-								}
-							}
-						?>
 					</table>
 					
 				</div>
