@@ -44,12 +44,17 @@ $(document).ready(function() {
                 setTimeout(function () {
                     $('#status-container').hide();
                     $('.loading').css('display', 'none');
-                    if (data['redirect'] != '') {
-						
-                        window.location.href = data['redirect'];
-                    }
+                    
                 }, 3000);
 
+                // Trabalha com os dados vindos do PHP
+                var register = data['cliente_cadastro'];
+                var stat = data['cliente_status'];
+
+
+
+                var mount = '<tr><td><p class="font-text-sub"><b>Cliente:</b></p><p>' + data['cliente_nome'] + '</p></td><td><p class="font-text-sub"><b>Cadastrado:</b></p><p>' + register + '</p></td><td><p class="font-text-sub"><b>E-mail:</b></p><p>' + data['cliente_email'] + '</p></td><td><p class="font-text-sub"><b>Status:</b></p><p class="font-text-sub">' + stat + '</p></td><td><p class="text-center"><a href="#" title="Visualizar e editar informações" class="radius btn_edit editClient" data-id="' + data['cliente_id'] + '"><i class="fa fa-pen"></i></a>&nbsp;&nbsp;<a href="#" title="Remover este registro" class="radius btn_delete deleteClient" data-id="' + data['cliente_id'] + '"><i class="fa fa-trash-alt"></i></a></p></td></tr>';
+                $('.row').html(mount);
             }
 
         });

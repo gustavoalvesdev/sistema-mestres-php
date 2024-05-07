@@ -231,43 +231,7 @@
 						<div class="clear"></div>
 						<div class="espaco-min"></div>
 					</form>
-					<table>
-					
-						<tr>
-							<td>
-								<p class="font-text-sub"><b>Cliente:</b></p>
-								<p><?= strip_tags($show['cliente_nome']) ?></p>
-							</td>
-							
-							<td>
-								<p class="font-text-sub"><b>Cadastrado:</b></p>
-								<p class="text-center"><?= ($show['cliente_cadastro'] == '' || $show['cliente_cadastro'] == '0000-00-00 00:00:00' ? '-'  : date('d/m/Y', strtotime($show['cliente_cadastro']))) ?></p>
-							</td>
-							
-							<td>
-								<p class="font-text-sub"><b>E-mail:</b></p>
-								<p><?= strip_tags($show['cliente_email']) ?></p>
-							</td>
-							
-							<td>
-								<p class="font-text-sub"><b>Status:</b></p>
-								<p class="font-text-sub">
-									<?php if ($show['cliente_status'] == 0) {
-										echo '<span class="inactive radius"> INATIVO </span>';
-									} else {
-										echo '<span class="active radius"> ATIVO </span>';
-									}
-									?>
-								</p>
-							</td>
-							
-							<td>
-								<p class="text-center">
-									<a href="#" title="Visualizar e editar informações" class="radius btn_edit editClient" data-id="<?= strip_tags($show['cliente_id']) ?>"><i class="fa fa-pen"></i></a>
-									<a href="#" title="Remover este registro" class="radius btn_delete deleteClient" data-id="<?= strip_tags($show['cliente_id']) ?>"><i class="fa fa-trash-alt"></i></a>
-								</p>
-							</td>
-						</tr>
+					<table class="row">
 					</table>
 					
 				</div>
