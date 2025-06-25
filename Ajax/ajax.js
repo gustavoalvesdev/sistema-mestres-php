@@ -47,6 +47,12 @@ $(document).ready(function() {
                     
                 }, 3000);
 
+                // Não monta a tabela caso o campo de pesquisa esteja vazio ou o banco de dados não encontra nenhuma informação
+                if (data['lines'] == 0) {
+                    $('.row').html('');
+                    return false;
+                }
+
                 // Trabalha com os dados vindos do PHP
                 var register = data['cliente_cadastro'];
                 var stat = data['cliente_status'];

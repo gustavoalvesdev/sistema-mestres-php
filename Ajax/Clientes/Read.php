@@ -8,7 +8,7 @@ $search = addslashes($_POST['searching']);
 
 if (empty($search)) {
 
-    $message = ['status' => 'info', 'message' => 'Favor, preencha o campo de busca', 'redirect' => ''];
+    $message = ['status' => 'info', 'message' => 'Favor, preencha o campo de busca', 'redirect' => '', 'lines' => 0];
 
     echo json_encode($message);
 
@@ -25,7 +25,7 @@ $lines = $read->rowCount();
 
 if ($lines == 0) {
 
-    $message = ['status' => 'info', 'message' => 'Esse Cliente não foi encontrado!', 'redirect' => ''];
+    $message = ['status' => 'info', 'message' => 'Esse Cliente não foi encontrado!', 'redirect' => '', 'lines' => 0];
 
     echo json_encode($message);
 

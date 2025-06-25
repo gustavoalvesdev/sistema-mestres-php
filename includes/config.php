@@ -55,7 +55,7 @@ define("LEVEL_SUPER", 10); //Nível de Acesso Para Profissional Web [Você]
 /* Configurações de Tabelas do Database */
 define("DB_USERS", "si_usuarios"); //Definição da Constante Para Tabela SI_USUARIOS
 define("DB_CLIENTS", "si_clientes"); //Definição da Constante Para Tabela SI_CLIENTES
-define("DB_ORDERS", "si_pedidos"); //Definição da Constante Para Tabela SI_CLIENTES
+define("DB_ORDERS", "si_pedido_material"); //Definição da Constante Para Tabela SI_CLIENTES
 define("DB_PRODUCTS", "si_produtos"); //Definição da Constante Para Tabela SI_PRODUTOS
 define("DB_PROVIDERS", "si_fornecedores"); //Definição da Constante Para Tabela SI_FORNECEDORES
 
